@@ -70,6 +70,30 @@ public class LinkedList {
         length ++;
     }
 
+    public Node removeFirst(){
+        if (length == 0)return null;
+        Node temp = head;
+        head = head.next;
+        temp.next = null;
+        length--;
+        if (length == 0){
+            tail = null;
+        }
+        return temp;
+    }
+
+    public Node get(int index){
+        if (index < 0 || index >= length){
+            return null;
+        }
+
+        Node temp = head;
+        for (int i = 0; i < index; i++){
+            temp = temp.next;
+        }
+        return temp;
+    }
+
 
     public void printList(){
         Node temp = head;
@@ -77,18 +101,6 @@ public class LinkedList {
             System.out.println(temp.value);
             temp = temp.next;
         }
-    }
-
-    public void getHead() {
-        System.out.println("Head: " + head.value);
-    }
-
-    public void getTail() {
-        System.out.println("Tail: " + tail.value);
-    }
-
-    public void getLength() {
-        System.out.println("Length: " + length);
     }
 
 
