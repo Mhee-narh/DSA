@@ -6,15 +6,6 @@ public class LinkedList {
     private Node tail;
     private int length;
 
-    class Node {
-        int value;
-        Node next;
-
-        public Node(int value) {
-            this.value = value;
-        }
-    }
-
     //Creating Linked List
     public LinkedList(int value) {
         Node newNode = new Node(value);
@@ -105,6 +96,38 @@ public class LinkedList {
         }
         temp.value = value;
         return true;
+    }
+
+    public boolean insert(int index, int value){
+        if (index < 0 || index >= length){
+            return false;
+        }
+        if (index == 0){
+            prepend(value);
+            return  true;
+        }
+        if (index == length){
+            append(value);
+            return true;
+        }
+        Node newNode = new Node(value);
+        Node temp = get(index - 1);
+        newNode.next = temp.next;
+        temp.next = newNode;
+        length++;
+        return true;
+    }
+
+    public Node remove(int index){
+        if (index < 0 || index >= length)return null;
+
+        Node temp = get(index);
+        Node pre = get(index -1);
+        Node pre2 = get(index + 1);
+        temp.next = null;
+        pre.next = pre2;
+        return temp;
+
     }
 
 

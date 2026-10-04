@@ -22,9 +22,9 @@ public class ExplainingHowOofNSquaredWorks {
             }
         }
 
-        for (int k = 0; k < n; k++){
-            System.out.println(k);
-        }
+//        for (int k = 0; k < n; k++){
+//            System.out.println(k);
+//        }
     }
 
     static void main(String[] args) {
