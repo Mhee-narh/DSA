@@ -120,14 +120,34 @@ public class LinkedList {
 
     public Node remove(int index){
         if (index < 0 || index >= length)return null;
-
-        Node temp = get(index);
-        Node pre = get(index -1);
-        Node pre2 = get(index + 1);
+        if (index == 0){
+            return removeFirst();
+        }
+        if (index == length-1){
+            return removeLast();
+        }
+        Node prev = get(index -1);
+        Node temp = prev.next;
+        prev.next = temp.next;
         temp.next = null;
-        pre.next = pre2;
+        length --;
         return temp;
+    }
 
+    public void reverse(){
+        Node temp = head;
+        head = tail;
+        tail = temp;
+
+        Node after = temp.next;
+        Node before = null;
+
+        for (int i = 0; i <length; i++){
+            after = temp.next;
+            temp.next = before;
+            before = temp;
+            temp = after;
+        }
     }
 
 
