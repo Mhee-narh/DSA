@@ -132,6 +132,7 @@ public class LinkedList {
         temp.next = null;
         length --;
         return temp;
+        //Made changes
     }
 
     public void reverse(){
